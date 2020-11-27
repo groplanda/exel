@@ -13,15 +13,16 @@ const jsLoaders = () => {
     {
       loader: "babel-loader",
       options: {
-        presets: ['@babel/preset-env']
+        presets: ['@babel/preset-env'],
+        plugins: ['@babel/plugin-proposal-class-properties']
       }
     }
-  ]
+  ];
   if(isDev) {
     loaders.push('eslint-loader');
   }
   return loaders;
-}
+};
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
@@ -85,4 +86,4 @@ module.exports = {
     compress: true,
     port: 3000,
   },
-}
+};
