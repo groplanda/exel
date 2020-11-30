@@ -32,6 +32,29 @@ class Dom {
   off (eventType, callback) {
     this.$el.removeEventListener(eventType, callback);
   }
+  closest (selector) {
+    return $(this.$el.closest(selector));
+  }
+  getCords () {
+    return this.$el.getBoundingClientRect();
+  }
+  get data () {
+    return this.$el.dataset;
+  }
+
+  findAll (selector) {
+    return this.$el.querySelectorAll(selector);
+  }
+  /*
+  * height: 30px;
+  * width: 30px;
+  * backgroundColor: '#f4f4f4';
+  */
+  css (styles = {}) {
+    return Object
+    .keys(styles)
+    .forEach(key => this.$el.style[key] = styles[key]);
+  }
 };
 
 export default function $ (selector) {
